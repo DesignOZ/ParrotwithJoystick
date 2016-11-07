@@ -1,13 +1,13 @@
-package com.example.parrotsample.activity;
+package com.example.parrotwithjoystick;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.parrotsample.R;
-import com.example.parrotsample.discovery.DroneDiscoverer;
+import com.example.parrotwithjoystick.Activity.BebopActivity;
+import com.example.parrotwithjoystick.discovery.DroneDiscoverer;
 import com.parrot.arsdk.ARSDK;
 import com.parrot.arsdk.ardiscovery.ARDISCOVERY_PRODUCT_ENUM;
 import com.parrot.arsdk.ardiscovery.ARDiscoveryDeviceService;
@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DeviceListActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_DEVICE_SERVICE = "EXTRA_DEVICE_SERVICE";
 
     private static final String TAG = "DeviceListActivity";
@@ -61,7 +61,7 @@ public class DeviceListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_device_list);
+        setContentView(R.layout.activity_main);
         final ListView listView = (ListView) findViewById(R.id.list);
 
         // Assign adapter to ListView
@@ -77,32 +77,32 @@ public class DeviceListActivity extends AppCompatActivity {
                 switch (product) {
                     case ARDISCOVERY_PRODUCT_ARDRONE:
                     case ARDISCOVERY_PRODUCT_BEBOP_2:
-                        intent = new Intent(DeviceListActivity.this, BebopActivity.class);
+                        intent = new Intent(MainActivity.this, BebopActivity.class);
                         break;
 
-                    case ARDISCOVERY_PRODUCT_SKYCONTROLLER:
-                        intent = new Intent(DeviceListActivity.this, SkyControllerActivity.class);
-                        break;
-
-                    case ARDISCOVERY_PRODUCT_SKYCONTROLLER_2:
-                        intent = new Intent(DeviceListActivity.this, SkyController2Activity.class);
-                        break;
-
-                    case ARDISCOVERY_PRODUCT_JS:
-                    case ARDISCOVERY_PRODUCT_JS_EVO_LIGHT:
-                    case ARDISCOVERY_PRODUCT_JS_EVO_RACE:
-                        intent = new Intent(DeviceListActivity.this, JSActivity.class);
-                        break;
-
-                    case ARDISCOVERY_PRODUCT_MINIDRONE:
-                    case ARDISCOVERY_PRODUCT_MINIDRONE_EVO_BRICK:
-                    case ARDISCOVERY_PRODUCT_MINIDRONE_EVO_LIGHT:
-                    case ARDISCOVERY_PRODUCT_MINIDRONE_DELOS3:
-                        intent = new Intent(DeviceListActivity.this, MiniDroneActivity.class);
-                        break;
-                    case ARDISCOVERY_PRODUCT_MINIDRONE_WINGX:
-                        intent = new Intent(DeviceListActivity.this, SwingDroneActivity.class);
-                        break;
+//                    case ARDISCOVERY_PRODUCT_SKYCONTROLLER:
+//                        intent = new Intent(DeviceListActivity.this, SkyControllerActivity.class);
+//                        break;
+//
+//                    case ARDISCOVERY_PRODUCT_SKYCONTROLLER_2:
+//                        intent = new Intent(DeviceListActivity.this, SkyController2Activity.class);
+//                        break;
+//
+//                    case ARDISCOVERY_PRODUCT_JS:
+//                    case ARDISCOVERY_PRODUCT_JS_EVO_LIGHT:
+//                    case ARDISCOVERY_PRODUCT_JS_EVO_RACE:
+//                        intent = new Intent(DeviceListActivity.this, JSActivity.class);
+//                        break;
+//
+//                    case ARDISCOVERY_PRODUCT_MINIDRONE:
+//                    case ARDISCOVERY_PRODUCT_MINIDRONE_EVO_BRICK:
+//                    case ARDISCOVERY_PRODUCT_MINIDRONE_EVO_LIGHT:
+//                    case ARDISCOVERY_PRODUCT_MINIDRONE_DELOS3:
+//                        intent = new Intent(DeviceListActivity.this, MiniDroneActivity.class);
+//                        break;
+//                    case ARDISCOVERY_PRODUCT_MINIDRONE_WINGX:
+//                        intent = new Intent(DeviceListActivity.this, SwingDroneActivity.class);
+//                        break;
 
                     default:
                         Log.e(TAG, "The type " + product + " is not supported by this sample");

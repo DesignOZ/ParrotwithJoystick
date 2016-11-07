@@ -1,4 +1,4 @@
-package com.example.parrotsample;
+package com.example.parrotwithjoystick;
 
 import org.junit.Test;
 

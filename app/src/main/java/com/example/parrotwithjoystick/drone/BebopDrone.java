@@ -1,4 +1,4 @@
-package com.example.parrotsample.drone;
+package com.example.parrotwithjoystick.drone;
 
 import android.content.Context;
 import android.os.Handler;

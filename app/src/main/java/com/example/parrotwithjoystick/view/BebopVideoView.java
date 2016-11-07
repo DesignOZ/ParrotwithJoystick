@@ -1,4 +1,4 @@
-package com.example.parrotsample.view;
+package com.example.parrotwithjoystick.view;
 
 import android.content.Context;
 import android.media.MediaCodec;

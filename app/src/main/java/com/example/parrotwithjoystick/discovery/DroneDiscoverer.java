@@ -1,4 +1,4 @@
-package com.example.parrotsample.discovery;
+package com.example.parrotwithjoystick.discovery;
 
 import android.content.ComponentName;
 import android.content.Context;
